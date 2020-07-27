@@ -1,0 +1,14 @@
+tbody {
+    display:block;
+    height:400px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;/* even columns width , fix width of table too*/
+}
+.clearlist{
+    padding: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,70 @@
+<div class="row container-fluid mt-5">
+  <div class="col-9">
+      <!-- DRINKS COMPONENT -->
+      <app-drinks 
+        *ngIf="hasRoute('/home/order/drinks')"
+        [drinksProduct]="productLists" 
+        [drinksCategory]="drinkCategory"
+        (selectedProd)="onSelect($event)">
+      </app-drinks>
+      <!-- FOOD COMPONENT -->
+      <app-foods 
+        *ngIf="hasRoute('/home/order/foods')" 
+        [foodCategory]="foodCategory"
+        [foodProducts]="productLists"
+        (selectedProd)="onSelect($event)">
+      </app-foods>
+      <!-- POPULAR COMPONENT -->
+      <app-popular 
+        *ngIf="hasRoute('/home/order/popular')">
+      </app-popular>
+      <!-- Modal -->
+      <app-modals 
+        [selectedProd]="selectedProduct"
+        [checkOut]="cart"
+        [total]="total"
+        [checkNewList]="checkNewList"
+        (pushProd)="onPushed($event)"
+        (clearList)="onClear($event)"
+      ></app-modals>
+  </div>
+  <div class="col-3 card ml-100">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ITEM</th>
+            <th>QTY</th>
+            <th>SUBTOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart">
+            <td>{{ item.prodName }}</td>
+            <td>{{ item.inputQty }}</td>
+            <td>P{{ item.prodPrice * item.inputQty }}.00</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <h4 class="list-group text-center border-top border-bottom clearlist" (click)="btnCLearList()">
+            CLEAR LIST
+          </h4>
+          <label>
+            Subtotal:
+          </label>
+          <h3 class="float-right">
+            <b>
+            P{{ !total || total == 0 ? 0 : total }}.00
+          </b>
+          </h3><br>
+          <button class="btn btn-success btn-block btn-lg" 
+            data-toggle="modal" 
+            data-target="#modalCheckOut"
+            data-backdrop="static"
+            [disabled]="cart.length == 0"
+            (click)="checkOut()">
+            CHECKOUT
+          </button>
+        </tfoot>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+  <!-- POPULAR PRODUCTS -->
+  <div class="row">
+    <!-- FOODS -->
+    <div class="col-12">
+      <div class="card text-white border-dark cardCont">
+        <div class="card-header bg-dark">
+          <h3>TOP 10 POPULAR PRODUCTS</h3>
+        </div>
+        <div class="card-body text-dark">
+          <ul class="list-group text-center" *ngFor="let list of ">
+            <li class="list-group-item list-group-item-action mb-1" title="Click to see {{ list.product }} products" *ngIf=" list.categoryId == 1">
+              <h5>{{list.product}}</h5>  
+            </li>
+            <!-- TABLE FOODS -->
+            <div class="my-custom-scrollbar table-wrapper-scroll-y" >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity on hand</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let prodList of ">
+                <tr *ngIf="prodList.productId == list.id">
+                  <td>{{ prodList.prodName }}</td>
+                  <td>P{{ prodList.price }}</td>
+                  <td>{{ prodList.qty }} Pcs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

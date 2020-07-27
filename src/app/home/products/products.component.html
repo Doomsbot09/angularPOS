@@ -1,0 +1,72 @@
+  <!-- PRODUCTS -->
+<div class="row mt-5">
+  <!-- FOODS -->
+  <div class="col-6">
+    <div class="card text-white border-dark cardCont">
+      <div class="card-header bg-dark">
+        <h3>FOODS</h3>
+      </div>
+      <div class="card-body text-dark">
+        <ul class="list-group text-center" *ngFor="let list of products" (click)="selectFoods(list)">
+          <li class="list-group-item list-group-item-action mb-1" title="Click to see {{ list.product }} products" *ngIf=" list.categoryId == 1">
+            <h5>{{list.product}}</h5>  
+          </li>
+          <!-- TABLE FOODS -->
+          <div class="my-custom-scrollbar table-wrapper-scroll-y" *ngIf="list.product == tblFoods">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity on hand</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let prodList of productLists">
+              <tr *ngIf="prodList.productId == list.id">
+                <td>{{ prodList.prodName }}</td>
+                <td>P{{ prodList.price }}</td>
+                <td>{{ prodList.qty }} Pcs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- DRINKS -->
+  <div class="col-6">
+    <div class="card text-white border-dark">
+      <div class="card-header bg-dark">
+        <h3>DRINKS</h3>
+      </div>
+      <div class="card-body text-dark">
+        <ul class="list-group text-center" *ngFor="let list of products" (click)="selectDrinks(list)">
+          <!-- SOFTDRINKS -->
+          <li class="list-group-item list-group-item-action mb-1" title="Click to see {{ list.product }} products" *ngIf="list.categoryId == 2">
+            <h5>{{ list.product }}</h5>  
+          </li>
+          <!-- TABLE SOFTDRINKS -->
+          <div class="my-custom-scrollbar table-wrapper-scroll-y" *ngIf="list.product == tblDrinks">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity on hand</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let prodList of productLists">
+                <tr *ngIf="list.id == prodList.productId">
+                  <td>{{ prodList.prodName }}</td>
+                  <td>P{{ prodList.price }}</td>
+                  <td>{{ prodList.qty }} Pcs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

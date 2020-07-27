@@ -1,0 +1,31 @@
+<!-- LIST OF PRODUCTS -->
+<div class="row">
+  <div  
+    class="col-1-sm" 
+    data-toggle="modal" 
+    data-target="#modalInputQty"
+    data-backdrop="static"
+    *ngFor="let item of foodProducts"
+    (click)="selectFood(item)">
+    <div *ngIf="prodListId ? item.productId == prodListId : item.productId == 10" class="cont text-white">
+      <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
+      <label class="centered">{{ item.prodName }}</label>
+    </div>
+  </div>
+</div>
+
+<!-- LIST OF FOOD CATEGORIES -->
+<div class="row secondContent">
+  <div  class="col-1-sm" *ngFor="let list of foodCategory" (click)="selectCategories(list)">
+    <div class="cont text-white">
+      <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
+      <label class="centered">{{ list.product }}</label>
+    </div>
+  </div>
+  <div  class="col-1-sm">
+    <div class="cont text-white">
+      <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
+      <label class="centered">Other Foods</label>
+    </div>
+  </div>
+</div>

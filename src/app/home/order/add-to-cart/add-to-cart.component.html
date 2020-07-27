@@ -1,0 +1,26 @@
+<form [formGroup]="addToCartForm">
+  <label for="">Input Quantity</label>
+  <input 
+    type="number" 
+    class="form-control"
+    formControlName="inputQty"
+    [ngClass]="{'is-invalid': formErrors.inputQty}"
+    (blur)="logValidators()"
+  >
+  <div class="text-danger" *ngIf="formErrors.inputQty">
+    <small>{{  formErrors.inputQty }}</small>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" data-dismiss="modal" title="Cancel" (click)="onCancel()"><i class="fa fa-window-close"></i></button>
+    <button 
+      type="button" 
+      class="btn btn-success" 
+      title="Add to cart"
+      data-dismiss="modal"
+      (click)="btnSubmit()" 
+      [disabled]="addToCartForm.invalid">
+      <i class="{{ addToCartForm.invalid ? 'fa fa-ban' : 'fa fa-cart-plus' }}"></i>
+    </button>
+  </div>
+</form>

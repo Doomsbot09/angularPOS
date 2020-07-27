@@ -1,0 +1,321 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "FOODS"
+    },
+    {
+      "id": 2,
+      "name": "DRINKS"
+    }
+  ],
+  "products": [
+    {
+      "id": 10,
+      "categoryId": 1,
+      "product": "BURGER"
+    },
+    {
+      "id": 20,
+      "categoryId": 1,
+      "product": "PIZZA"
+    },
+    {
+      "id": 30,
+      "categoryId": 1,
+      "product": "CHICKEN"
+    },
+    {
+      "id": 40,
+      "categoryId": 2,
+      "product": "SOFTDRINKS"
+    },
+    {
+      "id": 50,
+      "categoryId": 2,
+      "product": "COFFEE"
+    },
+    {
+      "id": 60,
+      "categoryId": 2,
+      "product": "SHAKE"
+    }
+  ],
+  "productList": [
+    {
+      "id": 11,
+      "productId": 10,
+      "prodName": "Hamburger",
+      "price": "25.00",
+      "qty": 10
+    },
+    {
+      "id": 12,
+      "productId": 10,
+      "prodName": "Bacon Egg Burger",
+      "price": "35.00",
+      "qty": 13
+    },
+    {
+      "id": 13,
+      "productId": 10,
+      "prodName": "Veggie Burger",
+      "price": "30.00",
+      "qty": 60
+    },
+    {
+      "id": 14,
+      "productId": 10,
+      "prodName": "Chicken Burger",
+      "price": "40.00",
+      "qty": 20
+    },
+    {
+      "id": 21,
+      "productId": 20,
+      "prodName": "Hawaian (sm)",
+      "price": "120.00",
+      "qty": 18
+    },
+    {
+      "id": 22,
+      "productId": 20,
+      "prodName": "Hawaian (md)",
+      "price": "240.00",
+      "qty": 19
+    },
+    {
+      "id": 23,
+      "productId": 20,
+      "prodName": "Hawaian (lg)",
+      "price": "350.00",
+      "qty": "20"
+    },
+    {
+      "id": 24,
+      "productId": 20,
+      "prodName": "Supreme (sm)",
+      "price": "150.00",
+      "qty": "30"
+    },
+    {
+      "id": 25,
+      "productId": 20,
+      "prodName": "Supreme (md)",
+      "price": "300.00",
+      "qty": "30"
+    },
+    {
+      "id": 26,
+      "productId": 20,
+      "prodName": "Supreme (lg)",
+      "price": "420.00",
+      "qty": "30"
+    },
+    {
+      "id": 27,
+      "productId": 20,
+      "prodName": "BBQ Bacon Cheese (sm)",
+      "price": "180.00",
+      "qty": "40"
+    },
+    {
+      "id": 28,
+      "productId": 20,
+      "prodName": "BBQ Bacon Cheese (md)",
+      "price": "320.00",
+      "qty": "40"
+    },
+    {
+      "id": 29,
+      "productId": 20,
+      "prodName": "BBQ Bacon Cheese (lg)",
+      "price": "500.00",
+      "qty": "40"
+    },
+    {
+      "id": 211,
+      "productId": 20,
+      "prodName": "Primo Meats (sm)",
+      "price": "200.00",
+      "qty": "50"
+    },
+    {
+      "id": 212,
+      "productId": 20,
+      "prodName": "Primo Meats (md)",
+      "price": "350.00",
+      "qty": "50"
+    },
+    {
+      "id": 213,
+      "productId": 20,
+      "prodName": "Primo Meats (lg)",
+      "price": "580.00",
+      "qty": 47
+    },
+    {
+      "id": 31,
+      "productId": 30,
+      "prodName": "Barbecue Chicken Neck",
+      "price": "10.00",
+      "qty": "20"
+    },
+    {
+      "id": 32,
+      "productId": 30,
+      "prodName": "Butter Chicken",
+      "price": "20.00",
+      "qty": 28
+    },
+    {
+      "id": 33,
+      "productId": 30,
+      "prodName": "Buffalo Wings",
+      "price": "20.00",
+      "qty": 36
+    },
+    {
+      "id": 34,
+      "productId": 30,
+      "prodName": "Fried Chicken Whole",
+      "price": "130.00",
+      "qty": 19
+    },
+    {
+      "id": 35,
+      "productId": 30,
+      "prodName": "Roasted Chicken Whole",
+      "price": "120.00",
+      "qty": "20"
+    },
+    {
+      "id": 41,
+      "productId": 40,
+      "prodName": "Mt. Dew (8 oz)",
+      "price": "10.00",
+      "qty": 17
+    },
+    {
+      "id": 42,
+      "productId": 40,
+      "prodName": "Mt. Dew (12 oz)",
+      "price": "15.00",
+      "qty": 5
+    },
+    {
+      "id": 43,
+      "productId": 40,
+      "prodName": "Coke (8 oz)",
+      "price": "10.00",
+      "qty": 21
+    },
+    {
+      "id": 44,
+      "productId": 40,
+      "prodName": "Coke (12 oz)",
+      "price": "10.00",
+      "qty": 28
+    },
+    {
+      "id": 45,
+      "productId": 40,
+      "prodName": "Coke (1 liter)",
+      "price": "30.00",
+      "qty": 27
+    },
+    {
+      "id": 46,
+      "productId": 40,
+      "prodName": "Sprite (8 oz)",
+      "price": "10.00",
+      "qty": 42
+    },
+    {
+      "id": 47,
+      "productId": 40,
+      "prodName": "Sprite (12 oz)",
+      "price": "15.00",
+      "qty": 37
+    },
+    {
+      "id": 48,
+      "productId": 40,
+      "prodName": "Sprite (1 liter)",
+      "price": "30.00",
+      "qty": 32
+    },
+    {
+      "id": 51,
+      "productId": 50,
+      "prodName": "Native Coffee",
+      "price": "15.00",
+      "qty": "30"
+    },
+    {
+      "id": 52,
+      "productId": 50,
+      "prodName": "Cappuccino",
+      "price": "20.00",
+      "qty": 30
+    },
+    {
+      "id": 53,
+      "productId": 50,
+      "prodName": "Espresso",
+      "price": "25.00",
+      "qty": 39
+    },
+    {
+      "id": 54,
+      "productId": 50,
+      "prodName": "Doppio",
+      "price": "25.00",
+      "qty": "40"
+    },
+    {
+      "id": 61,
+      "productId": 60,
+      "prodName": "Mango Shake",
+      "price": "20.00",
+      "qty": 13
+    },
+    {
+      "id": 62,
+      "productId": 60,
+      "prodName": "Strawberry Shake",
+      "price": "20.00",
+      "qty": 19
+    },
+    {
+      "id": 63,
+      "productId": 60,
+      "prodName": "Cookies and Cream",
+      "price": "30.00",
+      "qty": 17
+    }
+  ],
+  "sales": [
+    {
+      "id": 47,
+      "prodName": "Sprite (12 oz)",
+      "prodPrice": "15.00",
+      "prodQty": 38,
+      "inputQty": 1
+    },
+    {
+      "id": 61,
+      "prodName": "Mango Shake",
+      "prodPrice": "20.00",
+      "prodQty": 19,
+      "inputQty": 1
+    },
+    {
+      "id": 62,
+      "prodName": "Strawberry Shake",
+      "prodPrice": "20.00",
+      "prodQty": 20,
+      "inputQty": 1
+    }
+  ]
+}

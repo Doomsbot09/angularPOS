@@ -1,0 +1,133 @@
+<!-- INPUT QUANTITY -->
+<div class="modal fade" id="modalInputQty">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+        <h5>{{ selectedProd?.prodName }} - (Price: P{{ selectedProd?.price }})</h5>
+        <small>Quantity on hand: ({{ selectedProd?.qty }}pcs)</small>
+      </div>
+      </div>
+      <div class="modal-body">
+        <app-add-to-cart 
+          [addedToCart]="selectedProd"
+          (submittedProd)="onSubmittedProd($event)">
+        </app-add-to-cart>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- CHECKOUT -->
+<div class="modal fade" id="modalCheckOut">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+        <h5>CHECKOUT</h5>
+      </div>
+      </div>
+      <div class="modal-body">
+        <app-checkout 
+        [totalItems]="total"
+        [cartItems]="checkOut"
+        [newInput]="checkNewList"
+        (receipt)="onSubmitReceipt($event)">
+      </app-checkout>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- RECEIPT -->
+<div class="modal fade" id="modalReceipt">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="text-center">RECEIPT</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of checkOut">
+              <td>{{ item.prodName }}</td>
+              <td>{{ item.inputQty }}</td>
+              <td>P{{ item.prodPrice }}</td>
+              <td>P{{ item.prodPrice * item.inputQty }}.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row container-fluid">
+          <div class="col-6">
+            <label>
+              Sub Total:
+            </label>
+            <label class="float-right">
+              <b>
+              {{ receiptData?.total % 2 == 0 ? receiptData?.total + '.00' : receiptData?.total }}
+            </b>
+            </label><br>
+            <label>
+              Discount:
+            </label>
+            <label class="float-right">
+              <b>
+              {{ !receiptData?.discount ? 0 : receiptData?.discount % 2 == 0 ? receiptData?.discount + '.00' : receiptData?.discount }}
+            </b>
+            </label><br>
+            <label>
+              Net Total:
+            </label>
+            <label class="float-right">
+              <b>
+              {{ netTotal % 2 == 0 ? netTotal + '.00' : netTotal}}
+            </b>
+            </label><br>
+          </div>
+          <div class="col-6">
+          <label>
+           Cash:
+          </label>
+          <label class="float-right">
+            <b>
+            P{{ receiptData?.cash % 2 == 0 ? receiptData?.cash + '.00' : receiptData?.cash }}
+          </b>
+          </label><br>
+          <label>
+            Change:
+          </label>
+          <label class="float-right">
+            <b>
+            {{ changed % 2 == 0 ? changed + '.00' : changed }}
+          </b>
+          </label>
+          </div>
+        </div>
+        <div class="row border-top container-fluid">
+          <div class="col-6">
+            <label>
+              VAT Sales:
+            </label>
+            <label class="float-right">
+              <b>
+              {{ netTotal % 2 == 0 ? netTotal + '.00' : netTotal }}
+            </b>
+            </label><br>
+            <label>
+              VAT:
+            </label>
+            <label class="float-right">
+              <b>
+              {{ vat }}
+            </b>
+            </label><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

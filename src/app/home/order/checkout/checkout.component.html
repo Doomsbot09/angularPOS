@@ -1,0 +1,37 @@
+<form [formGroup]="checkOutForm">
+  <label for="amount">Total Amount</label>
+  <h3 id="amount">
+    P{{ totalItems % 2 == 0 ? totalItems + '.00' : totalItems }}
+  </h3>
+  <label>Discount</label>
+  <select formControlName="illiteracy" name="" id="" class="form-control" (change)="changeTotal()">
+    <option value="">None</option>
+    <option value="1">PWD/Senior Citizen</option>
+  </select>
+  <label for="">Input Cash</label>
+  <input 
+    type="number" 
+    class="form-control"
+    formControlName="cash"
+    [ngClass]="{'is-invalid': formErrors.cash}"
+    (blur)="logValidator()"
+  >
+  <div class="text-danger" *ngIf="formErrors.cash">
+    <small>{{  formErrors.cash }}</small>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" data-dismiss="modal" title="Cancel" (click)="onCancel()"><i class="fa fa-window-close"></i></button>
+    <button 
+      type="submit" 
+      class="btn btn-success" 
+      title="Add to cart" 
+      [disabled]="checkOutForm.invalid"
+      data-dismiss="modal"
+      data-toggle="modal" 
+      data-target="#modalReceipt"
+      (click)="btnSubmit()">
+      <i class="{{ checkOutForm.invalid ? 'fa fa-ban' : 'fa fa-cart-plus' }}"></i>
+    </button>
+  </div>
+</form>
