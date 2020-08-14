@@ -4,17 +4,17 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   selector: 'app-drinks',
   templateUrl: './drinks.component.html',
   styleUrls: ['./drinks.component.css'],
-  inputs: ['drinksCategory','drinksProduct'],
+  inputs: ['drinksCategory','drinksItem'],
   outputs: ['selectedProd']
 })
 export class DrinksComponent implements OnInit {
   // INPUT FROM PARENT
   drinksCategory: any;
-  drinksProduct: any;
+  drinksItem: any;
   // OUTPUT DATA
   selectedProd = new EventEmitter;
   // DECLERATION
-  prodListId: string = null;
+  itemListId: string = null;
 
   constructor() { }
 
@@ -23,7 +23,7 @@ export class DrinksComponent implements OnInit {
 
   // SELECT CATEGORIES FUNCTION
   selectCategories(data) {
-    this.prodListId = data.id
+    this.itemListId = data._id
   }
   // SELECT DRINK FUNCTION
   selectDrink(data) {

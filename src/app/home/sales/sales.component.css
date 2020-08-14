@@ -1,0 +1,8 @@
+.emptyProdMsg{
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    margin: 0;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

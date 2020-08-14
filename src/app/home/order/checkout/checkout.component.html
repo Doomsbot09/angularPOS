@@ -29,6 +29,7 @@
       [disabled]="checkOutForm.invalid"
       data-dismiss="modal"
       data-toggle="modal" 
+      data-backdrop="static"
       data-target="#modalReceipt"
       (click)="btnSubmit()">
       <i class="{{ checkOutForm.invalid ? 'fa fa-ban' : 'fa fa-cart-plus' }}"></i>

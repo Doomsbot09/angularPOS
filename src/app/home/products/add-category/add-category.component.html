@@ -1,0 +1,26 @@
+<form [formGroup]="addCategoryForms">
+  <label for="">Category Name</label>
+  <input 
+    type="text" 
+    class="form-control"
+    placeholder="Please input category name"
+    formControlName='categoryName'
+    [ngClass]="{'is-invalid': formErrors.categoryName}"
+    (blur)="logValErrors()"
+    >
+    <div class="text-danger" *ngIf="formErrors.categoryName">
+      <small>{{ formErrors.categoryName }}</small>
+    </div>
+
+    <div *ngIf="alertMsg" class="mt-2 {{ alertMsg == 'success' || alertMsg == 'success-update' ? 'alert alert-success' : 'alert alert-danger' }}">
+      {{ alertMsg == 'success' ? 'Successfully Added' : alertMsg == 'success-update' ? 'Success Updated' : alertMsg }}
+    </div>
+
+    <hr>
+    <div class="float-right">
+    <button class="btn btn-outline-danger mr-1" data-dismiss='modal' title="Click to cancel add product category" (click)="btnCancel()"><i class="fa fa-times"></i></button>
+    <button class="btn {{ updateCategoryData ? 'btn-warning' : 'btn-success' }}" (click)="btnSubmit()" [disabled]="addCategoryForms.invalid" title="Click to add product category">
+      <i class="{{ updateCategoryData && addCategoryForms.valid ? 'fa fa-pencil' : addCategoryForms.valid ? 'fa  fa-plus-square' : 'fa fa-ban' }}"></i>
+    </button>  
+  </div>
+</form>

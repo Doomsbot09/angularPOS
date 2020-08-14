@@ -1,16 +1,20 @@
-.tblFoods{
-    overflow: auto;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
 .my-custom-scrollbar {
     position: relative;
     overflow: auto;
     overflow-y: scroll;
     height: 350px;
-    }
+}
 .my-custom-scrollbar::-webkit-scrollbar {
     display: none;
 }
-
+li{
+    cursor: pointer;
+}
+.option{
+    cursor: pointer;
+}
+.categoryName, .cardTitle{
+    text-transform: uppercase;
+    background-color: none;
+    color: none;
+}

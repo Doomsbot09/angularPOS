@@ -1,9 +1,9 @@
 <div class="row container-fluid mt-5">
-  <div class="col-9">
+  <div class="col-lg-9 col-md-6">
       <!-- DRINKS COMPONENT -->
       <app-drinks 
         *ngIf="hasRoute('/home/order/drinks')"
-        [drinksProduct]="productLists" 
+        [drinksItem]="itemList" 
         [drinksCategory]="drinkCategory"
         (selectedProd)="onSelect($event)">
       </app-drinks>
@@ -11,16 +11,18 @@
       <app-foods 
         *ngIf="hasRoute('/home/order/foods')" 
         [foodCategory]="foodCategory"
-        [foodProducts]="productLists"
-        (selectedProd)="onSelect($event)">
+        [foodItems]="itemList"
+        (selectedItem)="onSelect($event)">
       </app-foods>
       <!-- POPULAR COMPONENT -->
       <app-popular 
-        *ngIf="hasRoute('/home/order/popular')">
+        *ngIf="hasRoute('/home/order/popular')"
+        [allItems]="itemList"
+        (selectedPopItem)="onSelect($event)">
       </app-popular>
       <!-- Modal -->
       <app-modals 
-        [selectedProd]="selectedProduct"
+        [selectedItem]="selectedItem"
         [checkOut]="cart"
         [total]="total"
         [checkNewList]="checkNewList"
@@ -28,7 +30,7 @@
         (clearList)="onClear($event)"
       ></app-modals>
   </div>
-  <div class="col-3 card ml-100">
+  <div class="col-lg-3 col-md-6 card ml-100">
       <table class="table">
         <thead>
           <tr>
@@ -39,14 +41,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of cart">
-            <td>{{ item.prodName }}</td>
+            <td>{{ item.productName }}</td>
             <td>{{ item.inputQty }}</td>
-            <td>P{{ item.prodPrice * item.inputQty }}.00</td>
+            <td>P{{ item.productPrice * item.inputQty }}.00</td>
           </tr>
         </tbody>
         <tfoot>
-          <h4 class="list-group text-center border-top border-bottom clearlist" (click)="btnCLearList()">
-            CLEAR LIST
+          <h4 class="list-group text-center border-top border-bottom clearlist">
+           <button class="btn btn-outline-none" (click)="btnCLearList()" [disabled]="cart.length == 0">CLEAR LIST</button>
           </h4>
           <label>
             Subtotal:

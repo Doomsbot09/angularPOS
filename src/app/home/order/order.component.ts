@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ProductsService } from './../../shared/services/products/products.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.min.js';
@@ -11,29 +11,43 @@ import Swal from 'sweetalert2/dist/sweetalert2.min.js';
 export class OrderComponent implements OnInit {
 
   // DECLARATIONS
-  productLists: any = [];
+  itemList: any = [];
   foodCategory: any = [];
   drinkCategory: any = [];
   checkNewList: string = null;
   cart: any = [];
   total: any;
   subTotal: any = [];
-  selectedProduct: any;
+  selectedItem: any;
   refreshData: boolean = false;
   router: string;
   newArray: any = [];
-
+  exit: boolean = false;
   constructor(
     private _PS: ProductsService,
-    private _rt: Router
+    private _rt: Router,
   ) { }
+  // Check transaction if finished before reloading
+  @HostListener('window:beforeunload',['event'])
+  unloadNotification(){
+    if(this.cart.length != 0) {
+     var isConfirm = confirm();
+      if(isConfirm){
+        return true
+      } else {
+        return false
+      }
+    } else {
+     return true
+    }
+  }
 
   ngOnInit() {
     // GET PRODUCTS CATEGORIES
-    this._PS.getProducts().subscribe((res: any) => {
+    this._PS.getCategories().subscribe((res: any) => {
         // FILTER AND PUSH PRODUCTS THAT BELONGS TO EACH CATEGORIES
-        res.filter((a: { categoryId: number; }) => {
-          if(a.categoryId == 1) {
+        res.filter((a) => {
+          if(a.productTypeID === '5f2240e7c8425077603cd79b') {
             this.foodCategory.push(a)
           } else {
             this.drinkCategory.push(a)
@@ -41,15 +55,38 @@ export class OrderComponent implements OnInit {
         })
     })
     // GET PRODUCT LIST
-    this.getProdListMethod();
-  }
-  // MAKE PRODUCT LIST METHOD TO REFRESH DATA DURING INIT OR UPDATE FUNCTION
-  getProdListMethod() {
-    this._PS.getProductList().subscribe((res: any) => {
-      this.productLists = res
+    this._PS.getItems().subscribe((res: any) => {
+      this.itemList = res;
     })
   }
-
+  // Check transaction if finished before leaving
+  canExit(): boolean {
+    // Check cart if not empty
+    let x = this.cart.length
+      // If cart is not empty pop up alert
+      if(x != 0) {
+        // Return the returned value of alert
+       return Swal.fire({
+         title: `Transaction's not finished`,
+         text: 'Do you want to leave this page? If yes cart will be cleared.',
+         icon: 'warning',
+         showCancelButton: true,
+         allowOutsideClick: false,
+         cancelButtonText: 'No',
+         confirmButtonText:'Yes!'
+       }).then((isConfirm) => {
+         if(isConfirm.value){
+          return true
+         } else {
+           return false
+         }
+       })
+      } 
+      // If cart is empty return true
+      else {
+        return true
+      }
+  }
   // USED TO HIDE AND SHOW COMPONENT IF URL IS EQUAL TO THE CURRENT URL
   hasRoute(route: string) {
    return this._rt.url.includes(route);
@@ -57,20 +94,25 @@ export class OrderComponent implements OnInit {
 
   // OUTPUT FUNCTION FROM FOOD COMPONENT
   onSelect(data: any) {
-    this.selectedProduct = data
+    this.selectedItem = data
   }
   // OUTPUT FUNCTION FROM MODALS
   onPushed(data: any) {
+    // Insert input qty from modal in selectedItem
+    this.selectedItem.inputQty = data.inputQty
+    var pushedItem = this.selectedItem
+    // Check cart if empty direct push if not check the item if it's already existing
     if(this.cart.length > 0) {
-      this.cart.push(data)
+      this.cart.push(pushedItem)
+      // Get all the duplicate items
       let x = this.cart.filter(a => {
-        if(a.id == data.id) {
+        if(a._id == pushedItem._id) {
           return a
         } else {
           return null
         }
       })
-      
+      // Remove the duplicated item and add the quantity
       if(x.length === 2){
         x[0].inputQty += x[1].inputQty;
         const index = this.cart.length - 1;
@@ -78,25 +120,20 @@ export class OrderComponent implements OnInit {
       }
 
     } else {
-      this.cart.push(data)
+      this.cart.push(pushedItem)
     }
-    
+    // Clear subtotal data before pushing new products
     this.subTotal = []
     this.cart.filter((a) => {
-      this.subTotal.push(a.prodPrice * a.inputQty)
+      this.subTotal.push(a.productPrice * a.inputQty)
     });
     this.total = this.subTotal.reduce((a,b) => a + b)
 
     // UPDATE THE QUANTITY EVERYTIME THE USER ADD A PRODUCT INTO CART
-    const a = this.selectedProduct;
-    const newSelectedProduct = { id: a.id, productId: a.productId, prodName: a.prodName, price: a.price, qty: a.qty - data.inputQty };
-    this._PS.updateProducts(newSelectedProduct).subscribe((res) => {
-      this.selectedProduct = res;
-      // GET NEW UPDATED DATA
-      this.getProdListMethod();
-    })
+    const a = this.selectedItem;
+    this.selectedItem.productQty = a.productQty - data.inputQty;
   }
-  // CLEAR CART AFTER SUBMIT
+  // CLEAR CART AFTER CHECKOUT
   onClear(){
     this.cart = [];
     this.total = [0];
@@ -107,7 +144,6 @@ export class OrderComponent implements OnInit {
   }
   // CLEAR LIST FUNCTION
   btnCLearList() {
-    // PROMPT FIRST ALERT
     Swal.fire({
       title: 'Warning',
       text: 'Do you want to clear item list?',
@@ -115,33 +151,12 @@ export class OrderComponent implements OnInit {
       showCancelButton: true
     }).then((isConfirm) => {
       if(isConfirm.value) {
-        // IF CONFIRM GET THE LIST OF PRODUCT AND UPDATE DATA
-        this._PS.getProductList().subscribe((res: any) => {
-          res.filter((y) => {
-            this.getCart(y)
-          })
-          // IF SUCCESS CLEARED PROMPT SUCCESS ALERT AND CLEAR CART DATA
-          Swal.fire({
-            title: 'CLEARED',
-            icon: 'success',
-            allowOutsideClick: false
-          }).then(() => {
-            this.cart = [];
-            this.total = [0];
-          })
-        })
-      }
-    })
-  }
-  // GET CART DATA METHOD
-  getCart(data) {
-    this.cart.filter((a, inx) => {
-      if(a.id == data.id){
-        const returnOldData = { id: data.id, productId: data.productId, prodName: data.prodName, price: data.price, qty: data.qty += a.inputQty }
-        this._PS.updateProducts(returnOldData).subscribe((res) => {
-          this.selectedProduct = res;
-          // GET NEW UPDATED DATA
-          this.getProdListMethod();
+        // Clear cart list and total value
+        this.cart = [];
+        this.total = [0];
+        // Get items value from db to return all original data
+        this._PS.getItems().subscribe((res: any) => {
+          this.itemList = res;
         })
       }
     })

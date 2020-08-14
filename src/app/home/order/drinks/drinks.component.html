@@ -5,11 +5,11 @@
     data-toggle="modal" 
     data-target="#modalInputQty"
     data-backdrop="static"
-    *ngFor="let item of drinksProduct"
+    *ngFor="let item of drinksItem"
     (click)="selectDrink(item)">
-    <div *ngIf="prodListId ? item.productId == prodListId : item.productId == 40" class="cont text-white">
+    <div *ngIf="!itemListId ? item.categoryID == drinksCategory[0]._id : item.categoryID == itemListId" class="cont text-white">
       <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
-      <label class="centered">{{ item.prodName }}</label>
+      <label class="centered">{{ item.productName }}</label>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
   <div  class="col-1-sm" *ngFor="let list of drinksCategory" (click)="selectCategories(list)">
     <div class="cont text-white">
       <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
-      <label class="centered">{{list.product == "SOFTDRINKS" ? 'SOFT DRINKS' : list.product}}</label>
+      <label class="centered categoryName">{{list.categoryName }}</label>
     </div>
   </div>
   <div  class="col-1-sm">

@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ValidateInput } from '../../../shared/CustomValidator/custom-validator';
+import { LogvalidatorService } from 'src/app/shared/formvalidators/logvalidator.service';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -20,7 +21,6 @@ export class AddToCartComponent implements OnInit {
   // DECLERATIONS
   addToCartForm: FormGroup
   quantity: number;
-  NUMERIC_PATTREN = '0-9';
 
   // VALIDATOR
   formValidator = {
@@ -36,17 +36,17 @@ export class AddToCartComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private logValidatorService: LogvalidatorService
   ) { }
 
   ngOnInit() {
     this.addToCartForm = this.fb.group({
-      id: [''],
-      prodName: [''],
-      prodPrice: [''],
-      prodQty: [''],
+      productQty: [''],
       inputQty: ['', [Validators.required, ValidateInput]]
-    })
+    });
+    // Update new value everytime forms value changes
+    this.addToCartForm.valueChanges.subscribe(() => this.logValidators());
   }
 
   // RESET AND PLACE NEW VALUE EVERYTIME THERE IS CHANGES
@@ -54,36 +54,30 @@ export class AddToCartComponent implements OnInit {
     // SET VALUE
     if(this.addedToCart != null) {
       this.setValues(this.addedToCart);
+      console.log(this.addedToCart)
     }
   }
   // SET VALUES FORM AND VALIDATOR
   setValues(value: any) {
-    this.addToCartForm.get('id').setValue(value.id);
-    this.addToCartForm.get('prodName').setValue(value.prodName);
-    this.addToCartForm.get('prodQty').setValue(value.qty);
-    this.addToCartForm.get('prodPrice').setValue(value.price);
+    this.addToCartForm.get('productQty').setValue(value.productQty);
     // SET NEW VALIDATOR
-    this.addToCartForm.get('inputQty').setValidators([Validators.required,Validators.max(value.qty), Validators.min(1), ValidateInput]);
+    this.addToCartForm.get('inputQty').setValidators([Validators.required,Validators.max(value.productQty), Validators.min(1), ValidateInput]);
   }
   // LOG VALIDATORS
-  logValidators(group: FormGroup = this.addToCartForm) {
-    Object.keys(group.controls).forEach((key) => {
-      const absCtrl = group.get(key);
-      this.formErrors[key] = ''
-      if(absCtrl && absCtrl.invalid && (absCtrl.touched)) {
-        const message = this.formValidator[key]
-        for(const errKey in absCtrl.errors){
-          if(errKey) {
-            this.formErrors[key] = message[errKey]
-            console.log(errKey)
-          }
-        }
-      } 
-    })
+  logValidators() {
+   this.logValidatorService.validatorErrors(this.addToCartForm, this.formValidator, this.formErrors);
   }
   // PUSH INTO CART ARRAY
   btnSubmit() {
     this.submittedProd.emit(this.addToCartForm.value);
+    // Get inputed quantity value and reduce it to the current product quantity before resiting
+    var qtyOnHand = this.addToCartForm.value.productQty;
+    var inputedQty= this.addToCartForm.value.inputQty;
+    var newQty    = qtyOnHand - inputedQty;
+    // Set new validator for inputQty and new value for quantity on hand
+    this.addToCartForm.get('productQty').setValue(newQty)
+    this.addToCartForm.get('inputQty').setValidators([Validators.required,Validators.max(newQty), Validators.min(1), ValidateInput]);
+    // Clear input after submitted
     this.addToCartForm.get('inputQty').reset();
   }
   // RESET FORM VALUE EVERYTIME USER CANCEL THE ORDER

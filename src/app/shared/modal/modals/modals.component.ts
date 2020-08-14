@@ -5,18 +5,25 @@ import { ProductsService } from './../../services/products/products.service';
   selector: 'app-modals',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.css'],
-  inputs: ['selectedProd','checkOut','total','checkNewList'],
-  outputs: ['pushProd','clearList']
+  inputs: ['selectedItem','checkOut','total','checkNewList','updateCategory','updateItem'],
+  outputs: ['pushProd','clearList','addedCategories','addedItems','addProduct','updatedItems','updatedCategory']
 })
 export class ModalsComponent implements OnInit {
   // INPUTS FROM PARENT
-  selectedProd: any;
+  selectedItem: any;
   checkOut: any;
   total: any;
   checkNewList: any;
+  updateCategory: any;
+  updateItem: any;
   // OUTPUT DATA
   pushProd = new EventEmitter;
   clearList = new EventEmitter;
+  addedCategories = new EventEmitter;
+  addedItems = new EventEmitter;
+  addProduct = new EventEmitter;
+  updatedItems = new EventEmitter;
+  updatedCategory = new EventEmitter;
   // DECLARATION
   inputStats: boolean = false;
   submitStats: boolean = false;
@@ -30,7 +37,6 @@ export class ModalsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   console.log(this.inputStats)
   }
 
   onSubmittedProd(data) {
@@ -43,39 +49,33 @@ export class ModalsComponent implements OnInit {
     this.netTotal= (this.receiptData.total - this.receiptData.discount);
     const getVat = (this.netTotal * 0.12);
     this.vat = Math.round(getVat * 10) / 10;
-    this.clearList.emit()
-    // this.checkOut.filter((x) => {
-    //   this.checkSales(x)
-    // })
   }
-  // CHECK IF DATA IS ALREADY IN SALES
-    // checkSales(data) {
-    //   this._PS.getSales().subscribe((getSales: any) => {
-    //     if(getSales.length > 0) {
-    //       let x = getSales.filter(a => {
-    //         if(data.id == a.id) {
-    //           return a
-    //         } else {
-    //           return null              
-    //         }
-    //       });
-    //       if(x.length !== 0){
-    //         const updateData = { id: data.id, prodName: data.prodName, prodPrice: data.prodPrice, inputQty: x[0].inputQty += data.inputQty }
-    //           this._PS.updateSales(updateData).subscribe((res) => {
-    //             console.log(res)
-    //           })
-    //       } else {
-    //         this._PS.addSales(data).subscribe((res) => {
-    //           console.log(res)
-    //         })
-    //       }
-    //     } else {
-    //       this._PS.addSales(data).subscribe((res) => {
-    //         console.log(res)
-    //       })
-    //     }
-    //   })
-    // }
-  
+    onAddProduct(data) {
+      console.log(data)
+      this.addProduct.emit(data);
+    }
+    // ON ADD CATEGORY
+    onAddCategory(data) {
+      this.addedCategories.emit(data)
+      console.log(data)
+    }
+    // ON ADD ITEMS
+    onAddItem(data) {
+      console.log(data)
+      this.addedItems.emit(data)
+    }
+    // ON UPDATE ITEMS
+    onUpdateItem(data) {
+      console.log(data)
+      this.updatedItems.emit(data);
+    }
+    // ON UPDATE CATEGORY
+    onUpdateCategory(data) {
+      this.updatedCategory.emit(data)
+      console.log(this.updateCategory)
+    }
+    clearCart(){
+      this.clearList.emit()
+    }
 
 }

@@ -1,0 +1,133 @@
+<body>
+  <form [formGroup]="optionForms">
+    <div class="row mt-5">
+      <div class="col-lg-5 col-md-12 col-sm-12 mb-4">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h3>
+              General Sales Report
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="d-flex">
+              <div class="w-20">
+                <select class="form-control" formControlName="selectDate" (change)="selectDate()">
+                  <option value="" disabled>Select Date</option>
+                  <option *ngFor="let dates of dateOfSales" value="{{ dates }}">{{ dates }}</option>
+                </select>
+              </div>
+              <div class="w-20 mb-2 ml-auto">
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Select Product"
+                  formControlName="selectProdGen"
+                  (keydown)="findProdGen()">
+              </div>
+            </div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Cost</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                  <th>Total</th>
+                  <th>Profit</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let list of gnSalesSelByDate | tableFilter: searchGenProd; let last=last; let sum=ngForOf">
+                <tr *ngIf="!list.msg">
+                  <td>{{ list.productName }}</td>
+                  <td>{{ list.productCost * 10 % 2 == 0 ? list.productCost + '.00' : list.productCost }}</td>
+                  <td>{{ list.productPrice * 10 % 2 == 0 ? list.productPrice + '.00' : list.productPrice}}</td>
+                  <td>{{ list.Quantity }}</td>
+                  <td>{{ list.subTotal * 10 % 2 == 0 ? list.subTotal + '.00' : list.subTotal}}</td>
+                  <td>{{ list.profit * 10 % 2 == 0 ? list.profit + '.00' : list.profit }}</td>
+                </tr>
+                <tr *ngIf="last && !list.msg">
+                  <td><b>TOTAL</b></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><b>P{{ sum | reduceFilter }}</b></td>
+                  <td><b>P{{ sum | filterProfit }}</b></td>
+                </tr>
+                <div class="emptyProdMsg" *ngIf="list.msg">
+                  {{ list.msg }}
+                </div>
+              </tbody>
+              <caption class="text-center" *ngIf="optionForms.get('selectDate').value == ''">
+                Select date to view sales
+               </caption>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h3>
+              Daily Sales Report
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="d-flex">
+              <div class="w-20 mb-2">
+                <select name="" id="" class="form-control" formControlName="selectStaff" (change)="onSelectStaff()">
+                  <option value="">All</option>
+                  <option *ngFor="let list of staff" value="{{list._id}}">{{ list.name }}</option>
+                </select>
+              </div>
+              <div class="w-20 mb-2 ml-auto">
+                <input type="text" class="form-control" placeholder="Select Product" formControlName="selectProdDaily" (keydown)="findProdDaily()">
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Staff</th>
+                  <th>Date</th>
+                  <th>Cost</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                  <th>Total</th>
+                  <th>Profit</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let list of (staffID == '' ? dailySales : selectedDailySales) | tableFilter: searchDailyProd;let last=last;let sum=ngForOf;let c = count">
+                <tr *ngIf="!list.msg">
+                  <td>{{ list.productName }}</td>
+                  <td>{{ list.staffID }} - {{ list.fullname }}</td>
+                  <td>{{ list.Date | date: 'M/d/y-h:mm:a'}}</td>
+                  <td>{{ list.productCost * 10 % 2 == 0 ? list.productCost + '.00' : list.productCost }}</td>
+                  <td>{{ list.productPrice * 10 % 2 == 0 ? list.productPrice + '.00' : list.productPrice}}</td>
+                  <td>{{ list.Quantity }}</td>
+                  <td>{{ list.subTotal * 10 % 2 == 0 ? list.subTotal + '.00' : list.subTotal}}</td>
+                  <td>{{ list.profit * 10 % 2 == 0 ? list.profit + '.00' : list.profit }}</td>
+                </tr>
+                <tr *ngIf="last && !list.msg">
+                  <td><b>TOTAL</b></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><b>P{{ sum | reduceFilter}}</b></td>
+                  <td><b>P{{ sum | filterProfit }}</b></td>
+                </tr>
+                <div class="emptyProdMsg" *ngIf="list.msg">
+                  {{ list.msg }}
+                </div>
+              </tbody>
+              <caption class="text-center" *ngIf="selectedDailySales.length == 0 && staffID != '' || (optionForms.get('selectDate').value == '')">
+                No sales for today
+              </caption>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>

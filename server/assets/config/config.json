@@ -1,0 +1,14 @@
+{
+    "development": {
+        "PORT":3000,
+        "MONGO_URI": "mongodb://localhost:27017/AngularPOS",
+        "JWT_SECRET": "SECRET#214",
+        "JWT_EXP": "1d"
+    },
+    "production": {
+        "PORT":80,
+        "MONGO_URI": "mongodb://xxxxxx/DB_NAME",
+        "JWT_SECRET": "SECRET#214",
+        "JWT_EXP": "1d"
+    }
+}

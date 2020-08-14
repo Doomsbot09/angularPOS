@@ -1,0 +1,28 @@
+<form [formGroup]="addProductForms">
+  <label for="">Product Type</label>
+  <input 
+    type="text" 
+    class="form-control"
+    placeholder="Please input product type ex:(FOOD, DRINKS)"
+    formControlName='productType'
+    [ngClass]="{'is-invalid': formErrors.productType}"
+    (blur)="logValErrors()">
+  <div class="text-danger" *ngIf="formErrors.productType">
+    <small>{{ formErrors.productType }}</small>
+  </div>
+
+  <div class="mt-2 {{ alertMsg == 'success' ? 'alert alert-success' : 'alert alert-danger' }}" *ngIf="alertMsg">
+    {{ alertMsg == 'success' ? 'Successfully Added' : alertMsg }}
+  </div>
+
+    <hr>
+    <div class="float-right">
+      <button class="btn btn-outline-danger mr-1" (click)="btnCancel()" data-dismiss="modal" title="Click to cancel product">
+        <i class="fa fa-times"></i> 
+      </button>
+      <button class="btn btn-success" (click)="btnSubmit()" [disabled]="addProductForms.invalid" title="Click to add new product">
+        <i class="fa {{ addProductForms.valid ? 'fa-plus-square' : 'fa-ban' }}"></i> 
+      </button>
+    </div>
+    
+</form>

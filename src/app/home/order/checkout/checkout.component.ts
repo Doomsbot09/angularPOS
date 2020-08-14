@@ -1,12 +1,15 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/shared/services/user/user.service';
+import { ProductsService } from './../../../shared/services/products/products.service';
+import { LogvalidatorService } from 'src/app/shared/formvalidators/logvalidator.service';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
   inputs: ['cartItems','totalItems','newInput'],
-  outputs: ['receipt','clearList']
+  outputs: ['receipt']
 })
 export class CheckoutComponent implements OnInit {
   // INPUT FROM PARENT
@@ -17,9 +20,10 @@ export class CheckoutComponent implements OnInit {
   receipt = new EventEmitter;
   clearList = new EventEmitter;
   // DECLARATION
-  checkOutForm: FormGroup;
   discountValue: any;
+  sales: any = [];
   // FORMS
+  checkOutForm: FormGroup;
   formValidation = {
     "cash" : {
       'required':'Please input cash value.',
@@ -31,7 +35,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _US: UserService,
+    private _PS: ProductsService,
+    private logValidatorService: LogvalidatorService
   ) { }
 
   ngOnInit() {
@@ -40,49 +47,57 @@ export class CheckoutComponent implements OnInit {
       total: [''],
       discount: [''],
       cash: ['', Validators.required]
-    })
+    });
+    // Updates form value everytime it changes
+    this.checkOutForm.valueChanges.subscribe(() => this.logValidator());
   }
   ngOnChanges() {
-    if(this.newInput == null){
-    } else {
-      setTimeout(() => {
-        this.checkOutForm.get('illiteracy').setValue('')
-        this.checkOutForm.get('cash').setValue('')
-      },1000)
-    }
-
     if(this.cartItems && this.totalItems){
       const total = this.totalItems;
       const ckForm = this.checkOutForm
         ckForm.get('total').setValue(total);
         ckForm.get('cash').setValidators([Validators.required, Validators.min(total)])
     }
+    // Insert keys into sales
+    this.sales = {
+      userID: '',
+      itemID: '',
+      productCost: '',
+      productName: '',
+      productPrice: '',
+      Quantity: ''
+    }
   }
 
   // LOG VALIDATOR
-  logValidator(group: FormGroup = this.checkOutForm) {
-    Object.keys(group.controls).forEach((key) => {
-      const absCtrl = group.get(key);
-      this.formErrors[key] = ''
-      if(absCtrl && absCtrl.invalid && (absCtrl.touched || absCtrl.dirty || absCtrl.value !=='')){
-        const message = this.formValidation[key];
-        for(const errKey in absCtrl.errors){
-          if(errKey) {
-            this.formErrors[key] = message[errKey];
-          }
-        }
-      } 
-    })
+  logValidator() {
+    this.logValidatorService.validatorErrors(this.checkOutForm, this.formValidation, this.formErrors);
   }
   // ON SUBMIT FUNCTION
   btnSubmit() {
+    // Get mapped values
+    this.cartItems.filter((x) => {
+      this.mapData(x);
+      // Add items into sales
+      this._PS.addSales(this.sales).subscribe((item: any) => {
+        // Update item quantity on hand everytime item pushed into sales
+        this._PS.updateItems(x).subscribe((res: any) => {
+          console.log(res)
+        })
+      })
+    })
+    // Pass the data into receipt modal
     this.receipt.emit(this.checkOutForm.value)
-    this.clearList.emit()
-    this.newInput = ''
+    // Clear the validator of cash so the disable button will not be triggered when reseting the values of forms
+    this.checkOutForm.get('cash').clearValidators();
+    this.checkOutForm.get('illiteracy').setValue('')
+    this.checkOutForm.get('cash').reset();
   }
   // ON CANCEL FUNCTION
   onCancel() {
-
+    // Clear form value
+    this.checkOutForm.get('illiteracy').setValue('')
+    this.checkOutForm.get('cash').reset();
   }
   // DISCOUNT
   changeTotal() {
@@ -102,4 +117,16 @@ export class CheckoutComponent implements OnInit {
       this.checkOutForm.get('cash').setValidators([Validators.required, Validators.min(this.totalItems)])
     }
   }
+  // MAP DATA TO INSERT IN SALES 
+  mapData(a) {
+    // Get userID
+    var userID = this._US.getUserPayload()._id;
+    this.sales.userID = userID;
+      this.sales.itemID = a._id;
+      this.sales.productCost = a.productCost;
+      this.sales.productName = a.productName;
+      this.sales.productPrice = a.productPrice;
+      this.sales.Quantity = a.inputQty;
+  }
+
 }

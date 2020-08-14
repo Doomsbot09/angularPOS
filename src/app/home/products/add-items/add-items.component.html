@@ -1,0 +1,82 @@
+<form [formGroup]="addItemForms">
+  <div class="row">
+    <div class="col-6">
+      <b for="">Product Name</b>
+      <input 
+        type="text" 
+        class="form-control"
+        placeholder="Input product name"
+        formControlName="productName"
+        [ngClass]="{'is-invalid': formErrors.productName}"
+        (blur)="logValErrors()">
+      <div class="text-danger" *ngIf="formErrors.productName">
+        <small>{{ formErrors.productName }}</small>
+      </div>
+    </div>
+    <div class="col-6">
+      <b for="">Product Cost</b>
+      <input 
+        type="number" 
+        class="form-control"
+        placeholder="Input product cost"
+        formControlName="productCost"
+        [ngClass]="{'is-invalid': formErrors.productCost}"
+        (blur)="logValErrors()">
+      <div class="text-danger" *ngIf="formErrors.productCost">
+        <small>{{ formErrors.productCost }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <b for="">Product Price</b>
+      <input 
+        type="number"
+        class="form-control"
+        placeholder="Input product price"
+        formControlName="productPrice"
+        [ngClass]="{'is-invalid': formErrors.productPrice}"
+        (blur)="logValErrors()">
+      <div class="text-danger" *ngIf="formErrors.productPrice">
+      <small>{{ formErrors.productPrice }}</small>
+      </div>
+    </div>
+    <div class="col-6">
+      <b for="">Product Qty</b>
+      <input 
+        type="number"
+        class="form-control"
+        placeholder="Input product quantity"
+        formControlName='productQty'
+        [ngClass]="{'is-invalid': formErrors.productQty}"
+        (blur)="logValErrors()">
+      <div class="text-danger" *ngIf="formErrors.productQty">
+      <small>{{ formErrors.productQty }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-2 {{ alertMsg == 'success' || alertMsg == 'success-updated' ? 'alert alert-success' : 'alert alert-danger' }}" *ngIf="alertMsg">
+    {{ alertMsg == 'success' ? 'Successfully Added' : alertMsg == 'success-update' ? 'Success Updated.' : alertMsg }}
+  </div>
+
+  <hr>
+  <div class="float-right">
+    <button 
+      class="btn btn-outline-danger mr-1" 
+      data-dismiss="modal" 
+      title="Click to cancel/close {{ updateItemData ? 'item update' : 'item add' }}"
+      (click)="btnCancel()">
+      <i class="fa fa-times"></i> 
+    </button>
+    <button 
+      class="btn {{ updateItemData ? 'btn-warning' : 'btn-success' }}"
+      (click)="btnSubmit()"
+      title="Click to {{ updateItemData ? 'update' : 'submit' }} item"
+      [disabled]="addItemForms.invalid">
+      <i class="{{ updateItemData && addItemForms.valid ? 'fa fa-pencil' :  addItemForms.valid ? 'fa fa-plus-square' : 'fa fa-ban' }}"></i> 
+    </button>
+  </div>
+
+</form>

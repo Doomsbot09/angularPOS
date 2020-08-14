@@ -1,42 +1,39 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import Swal from 'sweetalert2/dist/sweetalert2.min.js';
 
 @Component({
   selector: 'app-foods',
   templateUrl: './foods.component.html',
   styleUrls: ['./foods.component.css'],
-  inputs: ['foodCategory','foodProducts','refreshProducts'],
-  outputs: ['selectedProd']
+  inputs: ['foodCategory','foodItems','refreshProducts'],
+  outputs: ['selectedItem']
 })
 export class FoodsComponent implements OnInit {
   // INPUT FROM PARENT
-  foodProducts: any;
-  foodCategory: any;
+  foodItems: any;
+  foodCategory: any = [];
   refreshProducts: any;
   // OUTPUT DATA
-  selectedProd = new EventEmitter;
+  selectedItem = new EventEmitter;
   // DECLARATIONS
-  prodListId: string = null;
+  itemListId: string = null;
   
   constructor() { }
 
   ngOnInit() {
+  }
 
+  ngOnChanges(){
+    console.log(this.foodCategory)
   }
 
   // SELECT CATEGORIES FUNCTION
   selectCategories(data) {
-    this.prodListId = data.id
+    this.itemListId = data._id
   }
   // SELECT FOOD FUNCTION
   selectFood(item) {
-    this.selectedProd.emit(item)
-    if(item.qty == 0) {
-      Swal.fire({
-        title: 'Out of Stock',
-        icon: 'error'
-      })
-    }
+    this.selectedItem.emit(item)
+    console.log(item)
   }
 
 }

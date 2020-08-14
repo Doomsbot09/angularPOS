@@ -1,72 +1,147 @@
-  <!-- PRODUCTS -->
+<!-- PRODUCTS -->
 <div class="row mt-5">
   <!-- FOODS -->
-  <div class="col-6">
+  <div class="col-lg-6 col-md-12 mt-3" *ngFor="let item of prodType">
     <div class="card text-white border-dark cardCont">
       <div class="card-header bg-dark">
-        <h3>FOODS</h3>
+        <h3 class="float-left cardTitle">
+          {{ item.productType }}
+        </h3>
+        <div class="dropright float-right option" *ngIf="userType === 'Admin'">
+          <i class="fa fa-ellipsis-v fa-lg" data-toggle='dropdown' role="button"></i>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" 
+               data-toggle="modal" 
+               data-target="#modalAddCategory"
+               data-backdrop="static"
+               (click)='selectProdType(item._id)'>
+              <span class="badge badge-success">
+                <i class="fa fa-plus-square"></i>
+              </span>
+              Add Category
+            </a>
+            <a class="dropdown-item border-top" 
+               title="Click to select update category"
+               (click)="btnSelectOpt('updateCategory')">
+              <span class="badge badge-warning">
+                <i class="fa fa-pencil-square"></i>
+              </span>
+               Update Category
+            </a>
+            <a class="dropdown-item border-top"
+               title="Click to select update category"
+               (click)="btnSelectOpt('deleteCategory')">
+              <span class="badge badge-danger">
+                <i class="fa fa-trash-o"></i>
+              </span> 
+              Delete Category
+            </a>
+          </div>
+        </div>
       </div>
       <div class="card-body text-dark">
-        <ul class="list-group text-center" *ngFor="let list of products" (click)="selectFoods(list)">
-          <li class="list-group-item list-group-item-action mb-1" title="Click to see {{ list.product }} products" *ngIf=" list.categoryId == 1">
-            <h5>{{list.product}}</h5>  
+        <ul class="list-group text-center" *ngFor="let list of categories">
+          <li (dblclick)="selectCategory(list)" class="list-group-item list-group-item-action mb-1" title="Double click to see {{ list.categoryName }} products" *ngIf=" list.productTypeID == item._id">
+            <div class="float-right" *ngIf="showCategorySelection">
+              <button 
+                class="btn btn-sm btn-outline-danger mr-1 ml-1"
+                title="Cancel {{ showCategorySelection == 'updateCategory' ? 'update' : 'delete' }}"
+                (click)="cancelUpdDelCategory()">
+                <i class="fa fa-times"></i>
+              </button>
+              <button 
+                class="btn btn-sm btn-warning"
+                title="Click to select update"
+                data-toggle="modal"
+                data-target="#modalAddCategory"
+                data-backdrop="static"
+                *ngIf="showCategorySelection == 'updateCategory'"
+                (click)="btnUpdateCategory(list)">
+                <i class="fa fa-pencil"></i>
+              </button>
+              <button 
+                class="btn btn-sm btn-danger"
+                title="Click to delete category"
+                *ngIf="showCategorySelection == 'deleteCategory'"
+                (click)="btnDeleteCategory(list)">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </div>
+            <div class="float-right text-danger" *ngIf="list.danger"><i class="fa fa-exclamation-circle fa-lg"></i></div>
+            <h5 class="categoryName">
+              {{ list.categoryName }}
+            </h5>
           </li>
           <!-- TABLE FOODS -->
-          <div class="my-custom-scrollbar table-wrapper-scroll-y" *ngIf="list.product == tblFoods">
+          <div class="my-custom-scrollbar" *ngIf="list._id == tblID && list.productTypeID == item._id">
           <table class="table">
-            <thead>
+            <thead class="table dark">
               <tr>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity on hand</th>
+                <th>Status</th>
+                <th *ngIf="userType === 'Admin'">Options</th>
               </tr>
             </thead>
-            <tbody *ngFor="let prodList of productLists">
-              <tr *ngIf="prodList.productId == list.id">
-                <td>{{ prodList.prodName }}</td>
-                <td>P{{ prodList.price }}</td>
-                <td>{{ prodList.qty }} Pcs</td>
+            <tbody *ngFor="let prodList of prodItems">
+              <tr *ngIf="prodList.categoryID == list._id">
+                <td>{{ prodList.productName }}</td>
+                <td>P{{ prodList.productPrice }}.00</td>
+                <td>{{ prodList.productQty }} Pcs</td>
+                <td>
+                  <span class="{{ prodList.productQty >= 51 ? 'badge badge-success':prodList.productQty <= 50  && prodList.productQty > 20 ? 'badge badge-warning':'badge badge-danger'}}">
+                    {{ prodList.productQty >= 51 ? 'OK' :prodList.productQty <= 50  && prodList.productQty > 20 ? 'Low' :'Very Low!'}}
+                  </span>
+                </td>
+                <td *ngIf="userType === 'Admin'">
+                  <div class="btn-toolbar">
+                  <button 
+                    class="btn btn-group btn-warning mr-2"
+                    data-toggle="modal"
+                    data-target="#modalAddItems"
+                    data-backdrop="static"
+                    (click)="updateItems(prodList)">
+                    <i class="fa fa-pencil"></i>
+                  </button>
+                  <button 
+                    class="btn btn-group btn-outline-danger"
+                    (click)="deleteItems(prodList)">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                </div>
+                </td>
               </tr>
             </tbody>
           </table>
+          <div>
+            <!-- BUTTON ADD ITEMS -->
+            <button 
+              class="btn btn-primary btn-block btn-lg" 
+              data-toggle="modal" 
+              data-target="#modalAddItems"
+              data-backdrop="static"
+              *ngIf="userType === 'Admin'"
+              title="Click to add items"
+              (click)="addItems(list._id)">
+            <i class="fa fa-plus"></i> 
+            Add Item
+          </button>
+          </div>
         </div>
         </ul>
       </div>
     </div>
   </div>
-  <!-- DRINKS -->
-  <div class="col-6">
-    <div class="card text-white border-dark">
-      <div class="card-header bg-dark">
-        <h3>DRINKS</h3>
-      </div>
-      <div class="card-body text-dark">
-        <ul class="list-group text-center" *ngFor="let list of products" (click)="selectDrinks(list)">
-          <!-- SOFTDRINKS -->
-          <li class="list-group-item list-group-item-action mb-1" title="Click to see {{ list.product }} products" *ngIf="list.categoryId == 2">
-            <h5>{{ list.product }}</h5>  
-          </li>
-          <!-- TABLE SOFTDRINKS -->
-          <div class="my-custom-scrollbar table-wrapper-scroll-y" *ngIf="list.product == tblDrinks">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity on hand</th>
-                </tr>
-              </thead>
-              <tbody *ngFor="let prodList of productLists">
-                <tr *ngIf="list.id == prodList.productId">
-                  <td>{{ prodList.prodName }}</td>
-                  <td>P{{ prodList.price }}</td>
-                  <td>{{ prodList.qty }} Pcs</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
+
+<!-- MODALS -->
+<app-modals 
+  (addedCategories)="addedCategories($event)"
+  (addedItems)="addedItems($event)"
+  (addProduct)="addedProducts($event)"
+  (updatedItems)="updatedItems($event)"
+  (updatedCategory)="updatedCategory($event)"
+  [updateCategory]="updateCategoryData"
+  [updateItem]="updateItemData">
+</app-modals>

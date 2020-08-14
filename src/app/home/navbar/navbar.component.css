@@ -1,0 +1,7 @@
+.navbar-nav .active  a { 
+    background-color: #58b9ff;
+    width: 80px;
+}
+a:hover{
+    cursor: pointer;
+}

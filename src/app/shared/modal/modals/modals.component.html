@@ -1,16 +1,69 @@
+<!-- ADD PRODUCTS -->
+<div class="modal fade" id="modalAddProducts">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+        <h5>ADD NEW PRODUCTS</h5>
+      </div>
+      </div>
+      <div class="modal-body">
+        <app-add-products (addProduct)="onAddProduct($event)"></app-add-products>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ADD OR UPDATE CATEGORIES -->
+<div class="modal fade" id="modalAddCategory">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-white {{ updateCategory?._id ? 'bg-warning' : 'bg-success' }}">
+        <div class="modal-title">
+        <h5>{{ updateCategory?._id ? 'UPDATE' : 'ADD NEW' }} CATEGORY</h5>
+      </div>
+      </div>
+      <div class="modal-body">
+        <app-add-category 
+          (addCategory)="onAddCategory($event)"
+          (updateCategory)="onUpdateCategory($event)"
+          [updateCategoryData]="updateCategory">
+        </app-add-category>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ADD ITEMS AND UPDATE-->
+<div class="modal fade" id="modalAddItems">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-white {{ updateItem?._id ? 'bg-warning' : 'bg-success' }}">
+        <div class="modal-title">
+        <h5>{{ updateItem?._id ? 'UPDATE ITEM' : 'ADD ITEM' }}</h5>
+      </div>
+      </div>
+      <div class="modal-body">
+        <app-add-items 
+          [updateItemData]="updateItem" 
+          (addItem)="onAddItem($event)"
+          (updateItem)="onUpdateItem($event)">
+        </app-add-items>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- INPUT QUANTITY -->
 <div class="modal fade" id="modalInputQty">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <div class="modal-title">
-        <h5>{{ selectedProd?.prodName }} - (Price: P{{ selectedProd?.price }})</h5>
-        <small>Quantity on hand: ({{ selectedProd?.qty }}pcs)</small>
+        <h5>{{ selectedItem?.productName }} - (Price: P{{ selectedItem?.productPrice }})</h5>
+        <small>Quantity on hand: ({{ selectedItem?.productQty }}pcs)</small>
       </div>
       </div>
       <div class="modal-body">
         <app-add-to-cart 
-          [addedToCart]="selectedProd"
+          [addedToCart]="selectedItem"
           (submittedProd)="onSubmittedProd($event)">
         </app-add-to-cart>
       </div>
@@ -42,7 +95,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
-        <h3 class="text-center">RECEIPT</h3>
+        <div align="right">
+          <button class="btn btn-danger btn-sm" data-dismiss="modal" (click)="clearCart()">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+        <div class="text-center">
+          <h3>Dooms Store</h3>
+          <label for="">RECEIPT</label>
+        </div>
         <table class="table">
           <thead>
             <tr>
@@ -54,10 +115,10 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of checkOut">
-              <td>{{ item.prodName }}</td>
+              <td>{{ item.productName }}</td>
               <td>{{ item.inputQty }}</td>
-              <td>P{{ item.prodPrice }}</td>
-              <td>P{{ item.prodPrice * item.inputQty }}.00</td>
+              <td>P{{ item.productPrice }}</td>
+              <td>P{{ item.productPrice * item.inputQty }}.00</td>
             </tr>
           </tbody>
         </table>

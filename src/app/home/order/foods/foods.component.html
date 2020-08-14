@@ -5,21 +5,22 @@
     data-toggle="modal" 
     data-target="#modalInputQty"
     data-backdrop="static"
-    *ngFor="let item of foodProducts"
+    *ngFor="let item of foodItems"
     (click)="selectFood(item)">
-    <div *ngIf="prodListId ? item.productId == prodListId : item.productId == 10" class="cont text-white">
+    <!-- Check first if there is selected category if non get the first category from the list -->
+    <div *ngIf="!itemListId ? item.categoryID == foodCategory[0]._id : item.categoryID == itemListId" class="cont text-white">
       <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
-      <label class="centered">{{ item.prodName }}</label>
+      <label class="centered">{{ item.productName }}</label>
     </div>
   </div>
 </div>
 
 <!-- LIST OF FOOD CATEGORIES -->
 <div class="row secondContent">
-  <div  class="col-1-sm" *ngFor="let list of foodCategory" (click)="selectCategories(list)">
+  <div  class="col-1-sm box-shadow" *ngFor="let list of foodCategory" (click)="selectCategories(list)">
     <div class="cont text-white">
       <img src="../../../../assets/box.jpg" style="margin: 5px;width: 100px;height: 100px;">
-      <label class="centered">{{ list.product }}</label>
+      <label class="centered categoryName">{{ list.categoryName }}</label>
     </div>
   </div>
   <div  class="col-1-sm">

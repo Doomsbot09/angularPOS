@@ -1,45 +1,46 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="products" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'Admin'">
+        <a class="nav-link" routerLink="sales">
           <div align="center">
-            <svg class="bi text-white" width="32" height="32" fill="currentColor">
-              <use xlink:href="bootstrap-icons.svg#grid-3x3-gap-fill"/>
-            </svg>
+            <i class="fas fa-chart-line fa-2x"></i>
+            <br>
+            <small class="text-center">SALES</small>
+          </div>
+       </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="products">
+          <div align="center">
+            <i class="fas fa-th fa-2x"></i>
             <br>
             <small class="text-center">PRODUCTS</small>
           </div>
        </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="order/popular" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="order/popular">
           <div align="center">
-            <svg class="bi text-white" width="32" height="32" fill="currentColor">
-              <use xlink:href="bootstrap-icons.svg#star-fill"/>
-            </svg>
+            <i class="fas fa-star fa-2x"></i>
             <br>
             <small class="text-center">POPULAR</small>
           </div>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="order/foods" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="order/foods">
           <div align="center">
-            <svg class="bi text-white" width="32" height="32" fill="currentColor">
-              <use xlink:href="bootstrap-icons.svg#egg-fried"/>
-            </svg>
+            <i class="fas fa-utensils fa-2x" width="32" height="32"></i>
             <br>
             <small class="text-center">FOODS</small>
           </div>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="order/drinks" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="order/drinks">
           <div align="center">
-            <svg class="bi text-white" width="32" height="32" fill="currentColor">
-              <use xlink:href="bootstrap-icons.svg#cup-straw"/>
-            </svg>
+            <i class="fas fa-coffee fa-2x"></i>
             <br>
             <small class="text-center">DRINKS</small>
           </div>
@@ -49,14 +50,33 @@
 
     <form [formGroup] class="form-inline">
       <a class="nav-link border-left">
-          <div align="center">
-            <svg class="bi text-white" width="32" height="32" fill="currentColor">
+          <div align="center" class="dropleft">
+            <svg class="bi text-white" width="32" height="32" fill="currentColor"  data-toggle="dropdown">
               <use xlink:href="bootstrap-icons.svg#gear-fill"/>
             </svg>
             <br>
             <small class="text-center text-white">OPTIONS</small>
+            <div class="dropdown-menu dropDown">
+              <a 
+                class="dropdown-item" 
+                data-toggle="modal" 
+                data-target="#modalAddProducts" 
+                data-backdrop='static'
+                *ngIf="userType === 'Admin'">
+                <i class="fa fa-plus"></i> 
+                Add Products
+              </a>
+              <div class="dropdown-divider" *ngIf="userType === 'Admin'"></div>
+              <a class="dropdown-item" (click)="logOut()">
+                <i class="fa fa-sign-out"></i> 
+                Log out
+              </a>
+            </div>
           </div>
         </a>
     </form>
   </div>
 </nav>
+<!-- <div class="alert alert-danger text-center alert-sm">
+  Server is down
+</div> -->

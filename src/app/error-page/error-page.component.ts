@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error-page',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorPageComponent implements OnInit {
 
-  constructor() { }
+  // DECLERATION
+  time: number = 5;
+
+  constructor(
+    private rt: Router
+  ) { }
 
   ngOnInit() {
+    setInterval(() => {
+      this.time -= 1
+    }, 1000)
+    setTimeout(() => { 
+      this.rt.navigate(['sign-in']);
+      localStorage.clear();
+    }, 5000);
   }
 
 }
