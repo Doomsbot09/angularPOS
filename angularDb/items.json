@@ -1,0 +1,225 @@
+{ 
+    "_id" : ObjectId("5f2a0750df63a6bfd0db2d3e"), 
+    "categoryID" : "5f2249741957a542f0f91604", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "productQty" : NumberInt(34), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a076adf63a6bfd0db2d3f"), 
+    "categoryID" : "5f2249741957a542f0f91604", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Ham & Cheese", 
+    "productPrice" : NumberInt(25), 
+    "productQty" : NumberInt(53), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a079edf63a6bfd0db2d40"), 
+    "categoryID" : "5f2249741957a542f0f91604", 
+    "productCost" : NumberInt(23), 
+    "productName" : "Chicken Burger", 
+    "productPrice" : NumberInt(35), 
+    "productQty" : NumberInt(34), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a07d3df63a6bfd0db2d41"), 
+    "categoryID" : "5f2249741957a542f0f91604", 
+    "productCost" : NumberInt(13), 
+    "productName" : "Veggie Burger", 
+    "productPrice" : NumberInt(20), 
+    "productQty" : NumberInt(18), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a08c4df63a6bfd0db2d42"), 
+    "categoryID" : "5f226011979dbd6eac5b5928", 
+    "productCost" : NumberInt(97), 
+    "productName" : "Cheese Meat (sm)", 
+    "productPrice" : NumberInt(120), 
+    "productQty" : NumberInt(30), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a08f9df63a6bfd0db2d43"), 
+    "categoryID" : "5f226011979dbd6eac5b5928", 
+    "productCost" : NumberInt(120), 
+    "productName" : "Cheese Meat (md)", 
+    "productPrice" : NumberInt(180), 
+    "productQty" : NumberInt(51), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0923df63a6bfd0db2d44"), 
+    "categoryID" : "5f226011979dbd6eac5b5928", 
+    "productCost" : NumberInt(180), 
+    "productName" : "Cheese Meat (lg)", 
+    "productPrice" : NumberInt(250), 
+    "productQty" : NumberInt(28), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0940df63a6bfd0db2d45"), 
+    "categoryID" : "5f226011979dbd6eac5b5928", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Hawaiian (sm)", 
+    "productPrice" : NumberInt(140), 
+    "productQty" : NumberInt(34), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0959df63a6bfd0db2d46"), 
+    "categoryID" : "5f226011979dbd6eac5b5928", 
+    "productCost" : NumberInt(130), 
+    "productName" : "Hawaiian (md)", 
+    "productPrice" : NumberInt(160), 
+    "productQty" : NumberInt(25), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a097bdf63a6bfd0db2d47"), 
+    "categoryID" : "5f226011979dbd6eac5b5928", 
+    "productCost" : NumberInt(180), 
+    "productName" : "Hawaiian (lg)", 
+    "productPrice" : NumberInt(260), 
+    "productQty" : NumberInt(32), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a09b7df63a6bfd0db2d48"), 
+    "categoryID" : "5f226055979dbd6eac5b5929", 
+    "productCost" : NumberInt(20), 
+    "productName" : "Fried Chicken (pc)", 
+    "productPrice" : NumberInt(35), 
+    "productQty" : NumberInt(28), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a09e8df63a6bfd0db2d49"), 
+    "categoryID" : "5f226055979dbd6eac5b5929", 
+    "productCost" : NumberInt(30), 
+    "productName" : "Buffalo Wings (pc)", 
+    "productPrice" : NumberInt(40), 
+    "productQty" : NumberInt(17), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0a02df63a6bfd0db2d4a"), 
+    "categoryID" : "5f226055979dbd6eac5b5929", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Roasted (Whole)", 
+    "productPrice" : NumberInt(130), 
+    "productQty" : NumberInt(33), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0aa3df63a6bfd0db2d4b"), 
+    "categoryID" : "5f226073979dbd6eac5b592b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Coke (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "productQty" : NumberInt(13), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0abcdf63a6bfd0db2d4c"), 
+    "categoryID" : "5f226073979dbd6eac5b592b", 
+    "productCost" : NumberInt(9), 
+    "productName" : "Coke (12 oz)", 
+    "productPrice" : NumberInt(15), 
+    "productQty" : NumberInt(22), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0af0df63a6bfd0db2d4d"), 
+    "categoryID" : "5f226073979dbd6eac5b592b", 
+    "productCost" : NumberInt(18), 
+    "productName" : "Coke (1 liter)", 
+    "productPrice" : NumberInt(30), 
+    "productQty" : NumberInt(32), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0b0adf63a6bfd0db2d4e"), 
+    "categoryID" : "5f226073979dbd6eac5b592b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Sprite (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "productQty" : NumberInt(29), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0b18df63a6bfd0db2d4f"), 
+    "categoryID" : "5f226073979dbd6eac5b592b", 
+    "productCost" : NumberInt(9), 
+    "productName" : "Sprite (12 oz)", 
+    "productPrice" : NumberInt(15), 
+    "productQty" : NumberInt(22), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0b27df63a6bfd0db2d50"), 
+    "categoryID" : "5f226073979dbd6eac5b592b", 
+    "productCost" : NumberInt(18), 
+    "productName" : "Sprite (1 liter)", 
+    "productPrice" : NumberInt(30), 
+    "productQty" : NumberInt(36), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0c68df63a6bfd0db2d52"), 
+    "categoryID" : "5f22607f979dbd6eac5b592d", 
+    "productCost" : NumberInt(6), 
+    "productName" : "Native Coffee", 
+    "productPrice" : NumberInt(12), 
+    "productQty" : NumberInt(28), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0ca2df63a6bfd0db2d53"), 
+    "categoryID" : "5f22607f979dbd6eac5b592d", 
+    "productCost" : NumberInt(10), 
+    "productName" : "Mocha", 
+    "productPrice" : NumberInt(20), 
+    "productQty" : NumberInt(28), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0cb8df63a6bfd0db2d54"), 
+    "categoryID" : "5f22607f979dbd6eac5b592d", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Iced Coffee", 
+    "productPrice" : NumberInt(30), 
+    "productQty" : NumberInt(29), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0cfddf63a6bfd0db2d55"), 
+    "categoryID" : "5f2a0c21df63a6bfd0db2d51", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Mango Shake", 
+    "productPrice" : NumberInt(20), 
+    "productQty" : NumberInt(24), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0d26df63a6bfd0db2d56"), 
+    "categoryID" : "5f2a0c21df63a6bfd0db2d51", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Strawberry Shake", 
+    "productPrice" : NumberInt(20), 
+    "productQty" : NumberInt(53), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0d4bdf63a6bfd0db2d57"), 
+    "categoryID" : "5f2a0c21df63a6bfd0db2d51", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Cookies & Cream", 
+    "productPrice" : NumberInt(25), 
+    "productQty" : NumberInt(38), 
+    "__v" : NumberInt(0)
+}

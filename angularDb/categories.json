@@ -1,0 +1,36 @@
+{ 
+    "_id" : ObjectId("5f2249741957a542f0f91604"), 
+    "productTypeID" : "5f2240e7c8425077603cd79b", 
+    "categoryName" : "BURGER", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f226011979dbd6eac5b5928"), 
+    "productTypeID" : "5f2240e7c8425077603cd79b", 
+    "categoryName" : "pizza", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f226055979dbd6eac5b5929"), 
+    "productTypeID" : "5f2240e7c8425077603cd79b", 
+    "categoryName" : "chicken", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f226073979dbd6eac5b592b"), 
+    "productTypeID" : "5f2240eec8425077603cd79c", 
+    "categoryName" : "softdrinks", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f22607f979dbd6eac5b592d"), 
+    "productTypeID" : "5f2240eec8425077603cd79c", 
+    "categoryName" : "coffee", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2a0c21df63a6bfd0db2d51"), 
+    "productTypeID" : "5f2240eec8425077603cd79c", 
+    "categoryName" : "shake", 
+    "__v" : NumberInt(0)
+}

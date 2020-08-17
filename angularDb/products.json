@@ -1,0 +1,10 @@
+{ 
+    "_id" : ObjectId("5f2240e7c8425077603cd79b"), 
+    "productType" : "FOODS", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2240eec8425077603cd79c"), 
+    "productType" : "DRINKS", 
+    "__v" : NumberInt(0)
+}

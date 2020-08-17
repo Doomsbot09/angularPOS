@@ -1,0 +1,550 @@
+{ 
+    "_id" : ObjectId("5f2b6facb3b6643d15f84e2d"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0aa3df63a6bfd0db2d4b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Coke (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-05T02:49:16.280+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b6fecb3b6643d15f84e2e"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0aa3df63a6bfd0db2d4b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Coke (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-06T02:50:20.485+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b706eb3b6643d15f84e2f"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-06T02:52:30.306+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b7097b3b6643d15f84e30"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a076adf63a6bfd0db2d3f", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Ham & Cheese", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(5), 
+    "Date" : ISODate("2020-08-06T02:53:11.159+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b7097b3b6643d15f84e31"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(3), 
+    "Date" : ISODate("2020-08-06T02:53:11.164+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b7150b3b6643d15f84e32"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0aa3df63a6bfd0db2d4b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Coke (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "Quantity" : NumberInt(5), 
+    "Date" : ISODate("2020-08-06T02:56:16.253+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b7150b3b6643d15f84e33"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0abcdf63a6bfd0db2d4c", 
+    "productCost" : NumberInt(9), 
+    "productName" : "Coke (12 oz)", 
+    "productPrice" : NumberInt(15), 
+    "Quantity" : NumberInt(5), 
+    "Date" : ISODate("2020-08-06T02:56:16.258+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b7150b3b6643d15f84e34"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a079edf63a6bfd0db2d40", 
+    "productCost" : NumberInt(23), 
+    "productName" : "Chicken Burger", 
+    "productPrice" : NumberInt(35), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-06T02:56:16.264+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b75af716b8363bc1a1335"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0aa3df63a6bfd0db2d4b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Coke (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-06T03:14:55.364+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b8a7d75df843ba90ef413"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-06T04:43:41.618+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b8a7d75df843ba90ef414"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a079edf63a6bfd0db2d40", 
+    "productCost" : NumberInt(23), 
+    "productName" : "Chicken Burger", 
+    "productPrice" : NumberInt(35), 
+    "Quantity" : NumberInt(3), 
+    "Date" : ISODate("2020-08-06T04:43:41.634+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b8a7d75df843ba90ef415"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0abcdf63a6bfd0db2d4c", 
+    "productCost" : NumberInt(9), 
+    "productName" : "Coke (12 oz)", 
+    "productPrice" : NumberInt(15), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-06T04:43:41.640+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b961975df843ba90ef416"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a09e8df63a6bfd0db2d49", 
+    "productCost" : NumberInt(30), 
+    "productName" : "Buffalo Wings (pc)", 
+    "productPrice" : NumberInt(40), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-06T05:33:13.204+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2d036d2035db160871eb07"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a08f9df63a6bfd0db2d43", 
+    "productCost" : NumberInt(120), 
+    "productName" : "Cheese Meat (md)", 
+    "productPrice" : NumberInt(180), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-07T07:31:57.525+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2d03882035db160871eb08"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a08f9df63a6bfd0db2d43", 
+    "productCost" : NumberInt(120), 
+    "productName" : "Cheese Meat (md)", 
+    "productPrice" : NumberInt(180), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-07T07:32:24.248+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2e05e7585d77aab0812c1c"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0940df63a6bfd0db2d45", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Hawaiian (sm)", 
+    "productPrice" : NumberInt(140), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-08T01:54:47.700+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2e05e7585d77aab0812c1d"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0af0df63a6bfd0db2d4d", 
+    "productCost" : NumberInt(18), 
+    "productName" : "Coke (1 liter)", 
+    "productPrice" : NumberInt(30), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-08T01:54:47.733+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f31faea2917ccdb70cb3bfc"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a07d3df63a6bfd0db2d41", 
+    "productCost" : NumberInt(13), 
+    "productName" : "Veggie Burger", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T01:56:58.882+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f31fb532917ccdb70cb3bfd"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0cfddf63a6bfd0db2d55", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Mango Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T01:58:43.088+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f31fe8e2917ccdb70cb3c00"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0cfddf63a6bfd0db2d55", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Mango Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T02:12:30.160+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3202212917ccdb70cb3c03"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0cb8df63a6bfd0db2d54", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Iced Coffee", 
+    "productPrice" : NumberInt(30), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T02:27:45.529+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3204182917ccdb70cb3c04"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0cfddf63a6bfd0db2d55", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Mango Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-11T02:36:08.057+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f321d152917ccdb70cb3c06"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0923df63a6bfd0db2d44", 
+    "productCost" : NumberInt(180), 
+    "productName" : "Cheese Meat (lg)", 
+    "productPrice" : NumberInt(250), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T04:22:45.603+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f322b882917ccdb70cb3c07"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a0ca2df63a6bfd0db2d53", 
+    "productCost" : NumberInt(10), 
+    "productName" : "Mocha", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-11T05:24:24.947+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3231aa2917ccdb70cb3c08"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a07d3df63a6bfd0db2d41", 
+    "productCost" : NumberInt(13), 
+    "productName" : "Veggie Burger", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T05:50:34.578+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3232d12917ccdb70cb3c09"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T05:55:29.143+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3275642917ccdb70cb3c0a"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T10:39:32.198+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3276412917ccdb70cb3c0b"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-11T10:43:13.113+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3276582917ccdb70cb3c0c"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0d26df63a6bfd0db2d56", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Strawberry Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-11T10:43:36.080+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3276b92917ccdb70cb3c0d"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0d26df63a6bfd0db2d56", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Strawberry Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-11T10:45:13.945+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3276ea2917ccdb70cb3c0e"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a0d26df63a6bfd0db2d56", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Strawberry Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-11T10:46:02.919+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3277122917ccdb70cb3c0f"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0940df63a6bfd0db2d45", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Hawaiian (sm)", 
+    "productPrice" : NumberInt(140), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T10:46:42.567+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f32772a2917ccdb70cb3c10"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0940df63a6bfd0db2d45", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Hawaiian (sm)", 
+    "productPrice" : NumberInt(140), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-11T10:47:06.110+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3368115604f8e644669a51"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a08f9df63a6bfd0db2d43", 
+    "productCost" : NumberInt(120), 
+    "productName" : "Cheese Meat (md)", 
+    "productPrice" : NumberInt(180), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T03:54:57.381+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3369b15604f8e644669a52"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a079edf63a6bfd0db2d40", 
+    "productCost" : NumberInt(23), 
+    "productName" : "Chicken Burger", 
+    "productPrice" : NumberInt(35), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T04:01:53.546+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f336a3c5604f8e644669a53"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0a02df63a6bfd0db2d4a", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Roasted (Whole)", 
+    "productPrice" : NumberInt(130), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-12T04:04:12.144+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f336a3c5604f8e644669a54"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0aa3df63a6bfd0db2d4b", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Coke (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T04:04:12.147+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f336b295604f8e644669a55"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0ca2df63a6bfd0db2d53", 
+    "productCost" : NumberInt(10), 
+    "productName" : "Mocha", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-12T04:08:09.465+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f336b4b5604f8e644669a56"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0b18df63a6bfd0db2d4f", 
+    "productCost" : NumberInt(9), 
+    "productName" : "Sprite (12 oz)", 
+    "productPrice" : NumberInt(15), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T04:08:43.266+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f336bed5604f8e644669a57"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0d4bdf63a6bfd0db2d57", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Cookies & Cream", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-12T04:11:25.786+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3385c65604f8e644669a58"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a0b0adf63a6bfd0db2d4e", 
+    "productCost" : NumberInt(7), 
+    "productName" : "Sprite (8 oz)", 
+    "productPrice" : NumberInt(10), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T06:01:42.640+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f3385ed5604f8e644669a59"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a09b7df63a6bfd0db2d48", 
+    "productCost" : NumberInt(20), 
+    "productName" : "Fried Chicken (pc)", 
+    "productPrice" : NumberInt(35), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-12T06:02:21.882+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f33de125604f8e644669a5a"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0940df63a6bfd0db2d45", 
+    "productCost" : NumberInt(110), 
+    "productName" : "Hawaiian (sm)", 
+    "productPrice" : NumberInt(140), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T12:18:26.335+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f33de3c5604f8e644669a5b"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a0ca2df63a6bfd0db2d53", 
+    "productCost" : NumberInt(10), 
+    "productName" : "Mocha", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(5), 
+    "Date" : ISODate("2020-08-12T12:19:08.297+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f33ded15604f8e644669a5c"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a0cfddf63a6bfd0db2d55", 
+    "productCost" : NumberInt(12), 
+    "productName" : "Mango Shake", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-12T12:21:37.300+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f33defe5604f8e644669a5d"), 
+    "userID" : "5f2b7b73716b8363bc1a1336", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-12T12:22:22.778+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f34cfc292d5b629f45f7bfb"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0ca2df63a6bfd0db2d53", 
+    "productCost" : NumberInt(10), 
+    "productName" : "Mocha", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-13T05:29:38.106+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f34cfc292d5b629f45f7bfc"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0750df63a6bfd0db2d3e", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Hamburger", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-13T05:29:38.109+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f34d19292d5b629f45f7bfd"), 
+    "userID" : "5f28e6921b728eb0ec656367", 
+    "itemID" : "5f2a076adf63a6bfd0db2d3f", 
+    "productCost" : NumberInt(15), 
+    "productName" : "Ham & Cheese", 
+    "productPrice" : NumberInt(25), 
+    "Quantity" : NumberInt(1), 
+    "Date" : ISODate("2020-08-13T05:37:22.913+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f365a9d17146e43acbb3dbf"), 
+    "userID" : "5f28e6861b728eb0ec656366", 
+    "itemID" : "5f2a0ca2df63a6bfd0db2d53", 
+    "productCost" : NumberInt(10), 
+    "productName" : "Mocha", 
+    "productPrice" : NumberInt(20), 
+    "Quantity" : NumberInt(2), 
+    "Date" : ISODate("2020-08-14T09:34:21.254+0000"), 
+    "__v" : NumberInt(0)
+}

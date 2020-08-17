@@ -1,0 +1,30 @@
+{ 
+    "_id" : ObjectId("5f28e6861b728eb0ec656366"), 
+    "userType" : "Staff", 
+    "firstname" : "Juan", 
+    "lastname" : "Cruz", 
+    "username" : "staff1", 
+    "password" : "$2a$10$6TyiUitDDefLvp1NyIeRY.vhMkYbEOAFlvjil5pexelBP7QxlV23S", 
+    "saltSecret" : "$2a$10$6TyiUitDDefLvp1NyIeRY.", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f28e6921b728eb0ec656367"), 
+    "userType" : "Admin", 
+    "firstname" : "John", 
+    "lastname" : "Doe", 
+    "username" : "admin", 
+    "password" : "$2a$10$ZVVC7YB.nvUHfSYdnBcV5eN7rmZNeudYIpB3AVhYj0FgWT0b1zDfW", 
+    "saltSecret" : "$2a$10$ZVVC7YB.nvUHfSYdnBcV5e", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5f2b7b73716b8363bc1a1336"), 
+    "userType" : "Staff", 
+    "firstname" : "Luffy", 
+    "lastname" : "Sy", 
+    "username" : "staff2", 
+    "password" : "$2a$10$NCxFljAWQLfY8qI6QXk.Nu5GApf3bwB9euVtN9tyBmohncofWI9W6", 
+    "saltSecret" : "$2a$10$NCxFljAWQLfY8qI6QXk.Nu", 
+    "__v" : NumberInt(0)
+}
